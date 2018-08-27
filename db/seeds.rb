@@ -10,6 +10,6 @@ require 'faker'
 
 20.times do |i|
 
-  Item.create(title: )
+  Item.create(title: Faker::Cat.name, description: Faker::Cat.breed, price: 0.99, image_url: "https://loremflickr.com/320/240/kitten")
 
 end
