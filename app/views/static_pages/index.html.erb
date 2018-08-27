@@ -1,1 +1,28 @@
 <h1>Page d'accueil avec plein de chats</h1>
+<div class="containe">
+
+  <div class="cards">
+    <% Item.all.each do |i| %>
+
+      <div class="col-lg-4 mb40 cadre">
+          <div class="image-card-title-overlay card-hover">
+              <a class="card-link" href="#"></a>
+              <div class="card-overlay">
+                  <div class="overlay-inner">
+                      <h4><%= i.title %></h4>
+                  </div>
+              </div>
+              <%= image_tag 'chat1.jpg', class:"img-fluid" %>
+
+          </div>
+          <p class="pt30">
+            <%= i.description %>
+          </p>
+          <p class="pt30">
+            $<%= i.price %>
+          </p>
+        </div>
+      <% end %>
+  </div>
+
+</div>

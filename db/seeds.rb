@@ -8,8 +8,10 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Item.destroy_all
+
 20.times do |i|
 
-  Item.create(title: Faker::Cat.name, description: Faker::Cat.breed, price: 0.99, image_url: "https://loremflickr.com/320/240/kitten")
+  Item.create(title: Faker::Cat.name, description: Faker::Cat.breed, price: rand(0..10)+0.99, image_url: 'chat1.jpg')
 
 end
