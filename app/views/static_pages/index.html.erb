@@ -23,8 +23,8 @@
                     <h4><%= i.title %></h4>
                 </div>
             </div>
-            <%= image_tag i.image_url, class:"img-fluid",style: "width:400px ; height:200px" %>
-            
+            <%= image_tag i.image_url, class:"img-fluid",style: "width:20rem ; height:200px" %>
+
 
 
         </div>
@@ -33,7 +33,7 @@
         </p>
         <p class="btn btn-primary">
           <i class="fa fa-shopping-cart"></i>
-          $<%= i.price %>
+          <%= i.price %> €
         </p>
       </div>
     <% end %>
