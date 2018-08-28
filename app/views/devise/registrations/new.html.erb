@@ -1,39 +1,49 @@
-<h2>Sign up</h2>
+<div class="bg-parallax parallax-overlay accounts-page pt-5"  data-jarallax='{"speed": 0.2}' style='background: url(<%= asset_path "bg1.jpg" %>)'>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="container">
+    <div class="row pb-40">
+      <div class="col-lg-4 col-md-6 mr-auto ml-auto col-sm-8">
+        <h3 class="text-white text-center mb30">Remplissez le formulaire pour vous inscrire</h3>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.label "Prénom", class: "text-white" %><br />
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label "Nom", class: "text-white" %><br />
+            <%= f.text_field :last_name, autocomplete: "last_name", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email, class: "text-white" %><br />
+            <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label "Mot de passe", class: "text-white" %>
+            <% if @minimum_password_length %>
+            <em class = "text-white">(<%= @minimum_password_length %> caractères minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label "Confirmer le mot de passe", class: "text-white" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+          </div>
+
+          <div class="actions text-center pt-4 pb-4">
+            <%= f.submit "S'inscrire", class: "btn btn-rounded btn-success" %>
+          </div>
+        <% end %>
+        <p class="text-white">Pas encore de compte ? <%= link_to "Se connecter", new_user_session_path, class: "btn btn-primary" %></p>
+
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "last_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

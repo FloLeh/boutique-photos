@@ -16,14 +16,16 @@
 
     <div class=" mb40 cadre">
         <div class="image-card-title-overlay card-hover">
-          <%= link_to "", '#', class: "card-link" %>
+          <%= link_to "", items_path(i.id), class: "card-link" %>
 
             <div class="card-overlay">
                 <div class="overlay-inner">
                     <h4><%= i.title %></h4>
                 </div>
             </div>
-            <%= image_tag 'chat1.jpg', class:"img-fluid" %>
+            <%= image_tag i.image_url, class:"img-fluid",style: "width:20rem ; height:200px" %>
+
+
 
         </div>
         <p class="pt30">
@@ -31,7 +33,7 @@
         </p>
         <p class="btn btn-primary">
           <i class="fa fa-shopping-cart"></i>
-          $<%= i.price %>
+          <%= i.price %> €
         </p>
       </div>
     <% end %>

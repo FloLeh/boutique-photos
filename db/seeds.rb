@@ -10,8 +10,9 @@ require 'faker'
 
 Item.destroy_all
 
-20.times do |i|
+ 21.times do |i| 
+  
 
-  Item.create(title: Faker::Cat.name, description: Faker::Cat.breed, price: rand(0..10)+0.99, image_url: 'chat1.jpg')
+  Item.create(title: Faker::Cat.name, description: Faker::Cat.breed, price: rand(0..10)+0.99, image_url: "chat#{i}.jpg")
 
 end
