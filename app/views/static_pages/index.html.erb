@@ -10,10 +10,11 @@
     <% end %>
   </span>
 </header>
+<center><h2>Voici toutes les photos du moment</h2></center>
 <div class="cards">
   <% Item.all.each do |i| %>
 
-    <div class="col-lg-4 mb40 cadre">
+    <div class=" mb40 cadre">
         <div class="image-card-title-overlay card-hover">
           <%= link_to "", '#', class: "card-link" %>
 
@@ -28,7 +29,8 @@
         <p class="pt30">
           <%= i.description %>
         </p>
-        <p class="pt30">
+        <p class="btn btn-primary">
+          <i class="fa fa-shopping-cart"></i>
           $<%= i.price %>
         </p>
       </div>

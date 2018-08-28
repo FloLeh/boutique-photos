@@ -417,7 +417,7 @@ strong, b {
     display: table; } }
 
 .bg1 {
-  background: url(../images/bg2.jpg) no-repeat; }
+  background: asset_url("bg2.jpg") no-repeat; }
 
 .col-grid {
   padding: 10px 15px;
@@ -3112,7 +3112,7 @@ Top bar style
   background: #222; }
 
 /*
-Career 
+Career
 */
 .career-card {
   padding: 40px 20px;
