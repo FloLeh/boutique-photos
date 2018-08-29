@@ -2,9 +2,19 @@
   <a href=<%= root_url %>><h1 class="text-white">Atomic kitten </h1></a>
   <span class="perso">
     <% if current_user %>
-      <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
-      <%= link_to 'Edit Profile',edit_user_registration_path, class: "btn btn-success" %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+
+      <div class="dropdown">
+        <button class="btn btn-dark mask rgba-white-strong" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= current_user.first_name %> <%= current_user.last_name %>  <i class="fas fa-angle-down pl-3"></i>
+        <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+
+
       <%= link_to cart_path, class:"btn btn-info" do %>
 
         <i class="fa fa-shopping-cart"></i>Panier
