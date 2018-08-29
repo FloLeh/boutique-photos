@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
-    def create
-       @item=Item.find(params:item_id)
-        @order=Order.create!(card_item_id)
 
+    def new
+      @order=Order.create(user_id: current_user.id, cart_id: current_user.cart.id)
+    end
+
+    def create
         customer = Stripe::Customer.create(
-            email: params['email'],
+            email:current_user.email,
             source:'src_18eYalAHEMiOZZp1l9ZTjSU0',
           )
 
