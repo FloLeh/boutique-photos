@@ -1,6 +1,10 @@
 class CartController < ApplicationController
   def show
-    @cart = Cart.find_by(user_id: current_user.id) || Cart.create(user_id: current_user.id)
+    if Cart.find_by(user_id: current_user.id)
+      @cart = Cart.find_by(user_id: current_user.id)
+    else
+      @cart = Cart.create(user_id: current_user.id)
+    end
   end
 
   def empty
