@@ -1,12 +1,17 @@
-<header>
-  <a href="/"><h1>Atomic kitten </h1></a>
+<header class="page-titles title-dark pt30 pb20 mb70">
+  <a href=<%= root_url %>><h1 class="text-white">Atomic kitten </h1></a>
   <span class="perso">
     <% if current_user %>
       <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
       <%= link_to 'Edit Profile',edit_user_registration_path, class: "btn btn-success" %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+      <%= link_to cart_path, class:"btn btn-info" do %>
+        <i class="fa fa-shopping-cart"></i>Panier (<%= current_user.cart.items.count %>)
+      <% end %>
     <% else %>
       <%= link_to 'Login', new_user_session_path , class: "btn btn-primary"%>
     <% end %>
+
+
   </span>
 </header>

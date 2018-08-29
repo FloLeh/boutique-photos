@@ -5,25 +5,22 @@
 
     <div class=" mb40 cadre">
         <div class="image-card-title-overlay card-hover">
-          <%= link_to "", items_path(i.id), class: "card-link" %>
+          <%= link_to "", items_path(id: i.id), class: "card-link" %>
 
             <div class="card-overlay">
                 <div class="overlay-inner">
                     <h4><%= i.title %></h4>
                 </div>
             </div>
-            <%= image_tag i.image_url, class:"img-fluid",style: "width:20rem ; height:200px" %>
-
-
-
+            <%= image_tag i.image_url, class:"img-fluid",style: "width:20rem ; height:15rem" %>
         </div>
         <p class="pt30">
           <%= i.description %>
         </p>
-        <p class="btn btn-primary">
+        <%= link_to cart_path, class: "btn btn-primary mb-2" do %>
           <i class="fa fa-shopping-cart"></i>
           <%= i.price %> €
-        </p>
+        <% end %>
       </div>
     <% end %>
 </div>
