@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2018_08_29_074355) do
     t.index ["item_id"], name: "index_carts_items_on_item_id"
   end
 
+  create_table "contents", force: :cascade do |t|
+    t.bigint "carts_id"
+    t.bigint "items_id"
+    t.index ["carts_id"], name: "index_contents_on_carts_id"
+    t.index ["items_id"], name: "index_contents_on_items_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
