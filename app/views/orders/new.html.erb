@@ -6,7 +6,7 @@
                     </div>
                     <div class=" col-md-6 mb0">
                         <ol class="breadcrumb text-md-right">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<%= root_path %>">Home</a></li>
                             <li class="breadcrumb-item active">Checkout</li>
                         </ol>
                     </div>
@@ -55,46 +55,18 @@
             <hr class="mb50">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
-                    <div class="mb40">
-                        <h4>Billing Details</h4>
-                        <p>Already a customer? <a href="page-login.html" class="btn btn-sm btn-outline-secondary">Login</a></p>
+                    <% if current_user.nil? %>
+                       <div class="mb40">
+                         <h4>Billing Details</h4>
+                       <p>Already a customer? <a href="page-login.html" class="btn btn-sm btn-outline-secondary">Login</a></p>
                     </div>
+                    <% else %>
+                    <% end %>
+                   
                    <div class='checkout-smart-form mb50'>
     	<div class="smart-forms smart-container wrap-1">
             <form method="post" action="http://bootstraplovers.com/" id="account2">
             	<div class="form-body">
-
-                    <div class="spacer-b30">
-                    	<div class="tagline"><span>Personal Information </span></div><!-- .tagline -->
-                    </div>
-
-                    <div class="section">
-                        <label class="field prepend-icon">
-                            <input type="text" name="firstname" id="firstname" class="gui-input" placeholder="First name...">
-                            <span class="field-icon"><i class="fa fa-user"></i></span>
-                        </label>
-                    </div><!-- end section -->
-
-                    <div class="section">
-                        <label class="field prepend-icon">
-                            <input type="text" name="lastname" id="lastname" class="gui-input" placeholder="Last name...">
-                            <span class="field-icon"><i class="fa fa-user"></i></span>
-                        </label>
-                    </div><!-- end section -->
-
-                	<div class="section">
-                    	<label class="field prepend-icon">
-                        	<input type="email" name="email" id="email" class="gui-input" placeholder="Email address">
-                            <span class="field-icon"><i class="fa fa-envelope"></i></span>
-                        </label>
-                    </div><!-- end section -->
-
-                	<div class="section">
-                    	<label for="mobile" class="field prepend-icon">
-                        	<input type="tel" name="mobile" id="mobile" class="gui-input" placeholder="Telephone / moble number">
-                            <span class="field-icon"><i class="fa fa-phone-square"></i></span>
-                        </label>
-                    </div><!-- end section -->
 
                     <div class="spacer-t40 spacer-b30">
                     	<div class="tagline"><span> Payment Details </span></div><!-- .tagline -->
