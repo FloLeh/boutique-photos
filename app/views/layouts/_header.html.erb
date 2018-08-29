@@ -6,7 +6,10 @@
       <%= link_to 'Edit Profile',edit_user_registration_path, class: "btn btn-success" %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
       <%= link_to cart_path, class:"btn btn-info" do %>
-        <i class="fa fa-shopping-cart"></i>Panier (<%= current_user.cart.items.count %>)
+        <i class="fa fa-shopping-cart"></i>Panier
+        <% if current_user.cart %>
+          (<%= current_user.cart.items.count %>)
+        <% end %>
       <% end %>
     <% else %>
       <%= link_to 'Login', new_user_session_path , class: "btn btn-primary"%>
