@@ -11,7 +11,7 @@
         </div>
         <div class="container pb60">
             <h4 class="font300 mb30">
-                <a href="#" class="btn btn-dark float-right">Vider le panier</a>
+              <%= link_to "Vider le panier", cart_path, class: "btn btn-dark float-right" %>
                 Vous avez <%= @cart.items.count %> objets dans votre panier
             </h4>
             <table class="table table-condensed table-responsive cart-table mb40">
@@ -28,7 +28,7 @@
                 <tbody>
                   <% @cart.items.each do |i| %>
                     <tr>
-                        <td class="product-image">
+                        <td>
                             <%= image_tag i.image_url, width: "50" %>
                         </td>
                         <td class="product-name"><%= i.title %></td>
@@ -51,7 +51,7 @@
             </div>
              <div class="col-sm-6 text-right">
                  <div class="pb20">
-                     <h3><small>Prix total du Panier - </small> 249 €</h3>
+                     <h3><small>Prix total du Panier - </small> <%= @cart.items.map{|i| i.price}.sum %> €</h3>
                  </div>
              <a href="#" class="btn btn-primary">Commander</a>
             </div>
