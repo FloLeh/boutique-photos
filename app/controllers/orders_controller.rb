@@ -7,14 +7,14 @@ class OrdersController < ApplicationController
 
     def create
         customer = Stripe::Customer.create(
-            email:current_user.email,
-            source:'src_18eYalAHEMiOZZp1l9ZTjSU0',
+            email:params[:stripeEmail],
+            source:params[:stripeToken],
           )
 
         charge= Stripe::Charge.create(
             customer: customer.id,
             amount: @order.price,
-            description: "Payement photo de #{}",
+            description: "Payement photo de ",
             currency: 'eur'
         )
 
@@ -27,5 +27,6 @@ class OrdersController < ApplicationController
 
     def show
         @command= current_user.orders.where(state: 'paid')
+        redirect_to new_orders_path
     end
 end
