@@ -11,7 +11,7 @@
         </div>
         <div class="container pb60">
             <h4 class="font300 mb30">
-              <%= link_to "Vider le panier", cart_path, class: "btn btn-dark float-right" %>
+              <%= link_to "Vider le panier", root_url, method: :post, action: "empty", class: "btn btn-dark float-right" %>
                 Vous avez <%= @cart.items.count %> objets dans votre panier
             </h4>
             <table class="table table-condensed table-responsive cart-table mb40">
