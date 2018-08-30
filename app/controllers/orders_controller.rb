@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
 
     def new
-        puts params
+      puts params
+      @cart = Cart.find_by(user_id: current_user.id)
       @order=Order.create(user_id: current_user.id, cart_id: current_user.cart.id)
+
     end
 
     def create
@@ -21,7 +23,7 @@ class OrdersController < ApplicationController
         @cart = Cart.find_by(user_id: current_user.id)
         @cart.items.destroy_all
         redirect_to root_path
-        
+
         rescue Stripe::CardError => e
             flash[:alert]=e.message
     end
