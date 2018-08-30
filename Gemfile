@@ -64,3 +64,5 @@ gem 'faker'
 gem 'jquery-rails'
 gem 'devise'
 gem 'dotenv'
+gem 'stripe'
+ 

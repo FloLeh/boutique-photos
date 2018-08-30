@@ -17,9 +17,19 @@
         <p class="pt30">
           <%= i.description %>
         </p>
-        <%= link_to cart_path, class: "btn btn-primary mb-2" do %>
-          <i class="fa fa-shopping-cart"></i>
-          <%= i.price %> €
+        <% if current_user %>
+          <%= link_to cart_path(id: i.id), action: "add_to_cart",method: :post, class: "btn btn-primary mb-2" do %>
+            <% if !Cart.find_by(user_id: current_user.id) %>
+              <% Cart.create(user_id: current_user.id) %>
+            <% end %>
+            <i class="fa fa-shopping-cart"></i>
+            <%= i.price %> €
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: "btn btn-primary mb-2" do %>
+            <i class="fa fa-shopping-cart"></i>
+            <%= i.price %> €
+          <% end %>
         <% end %>
       </div>
     <% end %>
