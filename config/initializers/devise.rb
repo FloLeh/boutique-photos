@@ -1,14 +1,7 @@
 # frozen_string_literal: true
 require 'dotenv'
 
-<<<<<<< HEAD
-require 'dotenv'
 Dotenv.load
-
-
-=======
-Dotenv.load
->>>>>>> 49da7103a9a674b3e6010179e7e9caa4820deb01
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|

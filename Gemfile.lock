@@ -129,11 +129,8 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
-<<<<<<< HEAD
     netrc (0.11.0)
-=======
     multipart-post (2.0.0)
->>>>>>> 49da7103a9a674b3e6010179e7e9caa4820deb01
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
