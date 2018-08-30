@@ -65,4 +65,4 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'dotenv'
 gem 'stripe'
- 
+gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
