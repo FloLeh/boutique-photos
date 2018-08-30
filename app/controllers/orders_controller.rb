@@ -18,7 +18,8 @@ class OrdersController < ApplicationController
             currency: 'eur'
         )
 
-        
+        @cart = Cart.find_by(user_id: current_user.id)
+        @cart.items.destroy_all
         redirect_to root_path
         
         rescue Stripe::CardError => e
