@@ -1,34 +1,46 @@
 <div class="page-titles title-dark pt30 pb20 mb70">
-            <div class="container">
-                <div class="row">
-                    <div class=" col-md-6">
-                        <h4><span>Checkout</span></h4>
-                    </div>
-                    <div class=" col-md-6 mb0">
-                        <ol class="breadcrumb text-md-right">
-                            <li class="breadcrumb-item"><a href="<%= root_path %>">Home</a></li>
-                            <li class="breadcrumb-item active">Checkout</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container pb60">
-            <h5 class="mb30">
-                Votre commande comporte <%= @cart.items.count %> poster(s).
-            </h5>
-            <div class="row">
-              <% @cart.items.each do |i| %>
-                <div class="col-md-3 mb40">
-                    <a href="#" class="simple-hover">
-                        <%= image_tag i.image_url, class: 'img-fluid' %>
-                    </a>
-                    <div class="clearfix product-meta text-center">
+  <div class="container">
+    <div class="row">
+      <div class=" col-md-6">
+        <h4><span>Finalisez votre commande</span></h4>
+      </div>
+      <div class=" col-md-6 mb0">
+          <ol class="breadcrumb text-md-right">
+            <a href="<%= root_path %>", class="btn btn-primary">Revenir à l'accueil</a></li>
+          </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container pb60">
+    <h5 class="mb30">
+        Votre commande comporte <%= @cart.items.count %> poster(s).
+    </h5>
+    <div class="row">
+      <% @cart.items.each do |i| %>
+        <div class="col-md-3 mb40">
+            <a href="#" class="simple-hover">
+                <%= image_tag i.image_url, class: 'img-fluid' %>
+            </a>
+            <div class="clearfix product-meta text-center">
 
-                        <p class="lead mb0"><%= i.title %></p>
-                        <h4 class=""><%= i.price %> €</h4>
-                    </div>
-                </div><!--/col-->
+                <p class="lead mb0"><%= i.title %></p>
+                <h4 class=""><%= i.price %> €</h4>
+            </div>
+        </div><!--/col-->
+      <% end %>
+
+    </div>
+    <hr class="mb50">
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+
+            <%= form_tag orders_path do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
               <% end %>
 
             </div>
@@ -191,9 +203,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" text-right">
-                        <a href="#" class="btn btn-primary btn-lg">Checkout</a>
+                    <div class="col-sm-6 text-right">
+                        <span class="h5 font700"><%= @cart.items.map{|i| i.price}.sum %> €</span>
                     </div>
                 </div>
             </div>
+            <div class=" text-right">
+                <a href="#" class="btn btn-primary btn-lg">Payer</a>
+            </div>
         </div>
+    </div>
+</div>

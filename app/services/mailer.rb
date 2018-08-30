@@ -1,4 +1,6 @@
 require 'dotenv'
+require 'open-uri'
+
 Dotenv.load
 
 class Mailer
@@ -12,15 +14,13 @@ class Mailer
       'To'=> [
           {
               'Email'=> 'thp.acc.tests@gmail.com',
-              'Name'=> 'passenger 1'
+              'Name'=> 'flo'
           }
       ],
-      'Subject'=> 'Your email flight plan!',
-      'TextPart'=> "Hello #{current_user.first_name}, welcome to Mailjet! May the delivery force be with you!",
-      'HTMLPart'=> "<h3>Dear #{current_user.first_name} , welcome to Mailjet!</h3><br />May the delivery force be with you!"
+      'Subject'=> 'Bienvenue sur Atomic Kitten !',
+      'HTMLPart'=> "<h1>Salut Flo,</h1> <img src='https://thp-nantes-boutique.herokuapp.com/assets/chat1-ec7132dc5b4f0d47196ee2fa5e333c5e645a2ecab110d1ca0175fc3abdbe04a7.jpg' alt=''>"
     }]}
     test = Mailjet::Send.create(email)
-
   end
 
 end

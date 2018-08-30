@@ -12,22 +12,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    email = { messages: [{
-      'From'=> {
-          'Email'=> ENV['PRIVATE_EMAIL_ADRESS'],
-          'Name'=> 'THP-nantes'
-      },
-      'To'=> [
-          {
-              'Email'=> current_user.email,
-              'Name'=> current_user.first_name
-          }
-      ],
-      'Subject'=> 'Bienvenue sur Atomic Kitten !',
-      'TextPart'=> "Salut #{current_user.first_name.capitalize}, merci de ton inscription sur le site ! Tu peux à présent commander autant de posters de chatons que tu veux !",
-      'HTMLPart'=> "<h1>Salut #{current_user.first_name.capitalize}</h1> <p>Merci de ton inscription sur le site ! Tu peux à présent commander autant de posters de chatons que tu veux !</p>"
-    }]}
-    test = Mailjet::Send.create(email)
+    if current_user
+      email = { messages: [{
+        'From'=> {
+            'Email'=> ENV['PRIVATE_EMAIL_ADRESS'],
+            'Name'=> 'THP-nantes'
+        },
+        'To'=> [
+            {
+                'Email'=> current_user.email,
+                'Name'=> current_user.first_name
+            }
+        ],
+        'Subject'=> 'Bienvenue sur Atomic Kitten !',
+        'TextPart'=> "Salut #{current_user.first_name.capitalize}. Merci de ton inscription sur le site ! Tu peux à présent commander autant de posters de chatons que tu veux !",
+        'HTMLPart'=> "<h1>Salut #{current_user.first_name.capitalize}</h1>. <h2>Merci de ton inscription sur le site ! Tu peux à présent commander autant de posters de chatons que tu veux !</h2>"
+      }]}
+      test = Mailjet::Send.create(email)
+    end
   end
 
   # GET /resource/edit
