@@ -1,2 +1,2 @@
-# README
-https://thp-nantes-boutique.herokuapp.com/ (normal qu'elle ne marche pas pour le moment)
+# Voici notre boutique de vente d'images de chatons
+https://thp-nantes-boutique.herokuapp.com/

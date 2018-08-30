@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :orders, only: [:new,:create]
   root to: 'static_pages#index'
   get '/items/:id', to: 'items#show', as:"items"

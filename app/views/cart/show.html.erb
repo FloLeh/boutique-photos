@@ -51,13 +51,15 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <a href="#" class="btn btn-outline-secondary">Continuer le Shopping</a>
+                <a href= <%= root_url %> class="btn btn-outline-secondary">Continuer le Shopping</a>
             </div>
              <div class="col-sm-6 text-right">
                  <div class="pb20">
                      <h3><small>Prix total du Panier - </small> <%= @cart.items.map{|i| i.price}.sum %> €</h3>
                  </div>
-                <%= link_to "Passer la commande", new_order_path, class: "btn btn-primary" %>
+                 <% if @cart.items.count != 0 %>
+                   <%= link_to "Passer la commande", new_order_path, class: "btn btn-primary" %>
+                 <% end %>
             </div>
         </div>
 </div>
