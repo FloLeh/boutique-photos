@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_142011) do
     t.index ["user_id"], name: "index_carts_on_user_id", unique: true
   end
 
-  create_table "carts_items", id: false, force: :cascade do |t|
+  create_table "carts_items", force: :cascade do |t|
     t.bigint "cart_id"
     t.bigint "item_id"
     t.index ["cart_id"], name: "index_carts_items_on_cart_id"

@@ -25,11 +25,14 @@
                     <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                     <input type="button" class="plus" value="+">
                 </div>
-                <% if !Cart.find_by(user_id: current_user.id) %>
-                  <% Cart.create(user_id: current_user.id) %>
-                <% end %>
+                <% if current_user %>
+                  <% if !Cart.find_by(user_id: current_user.id) %>
+                    <% Cart.create(user_id: current_user.id) %>
+                  <% end %>
                 <%= link_to "Ajouter au panier", cart_path(id: params[:id]), action: "add_to_cart",method: :post, class: "btn btn-primary" %>
-
+                <% else %>
+                <%= link_to "Ajouter au panier", new_user_session_path , class: "btn btn-primary" %>
+                <% end %>
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ class CartController < ApplicationController
   end
 
   def remove_item
-    Item.destroy(params[:item_id])
+    CartsItem.destroy(CartsItem.find_by(item_id: params[:item_id]).id)
     redirect_to cart_path
   end
 end
