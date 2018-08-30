@@ -64,4 +64,9 @@ gem 'faker'
 gem 'jquery-rails'
 gem 'devise'
 gem 'dotenv'
+<<<<<<< HEAD
 gem 'mailjet'
+=======
+gem 'stripe'
+ 
+>>>>>>> 49da7103a9a674b3e6010179e7e9caa4820deb01

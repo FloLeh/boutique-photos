@@ -1,0 +1,40 @@
+<%= render 'layouts/header' %>
+<%= link_to "Éditer mon profil", edit_user_registration_path, class: "btn btn-success float-right" %>
+
+<div class="container pt50 pb20" id="aboutme">
+            <div class="row align-items-center">
+                <div class='col-lg-6 mb30'>
+                  <%= image_tag "profil.jpg", class: 'img-fluid' %>
+
+                </div>
+                <div class="col-lg-6 mb30">
+                    <h5 class="font700 h1">Bonjour <%= @user.first_name.capitalize %> !</h5>
+                    <p><em><%= @user.email %></em></p>
+                    <h3 class="font400 h4">Te voici sur ta page de profil.</h3>
+                    <p>
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    </p>
+            </div>
+        </div>
+
+
+        <div class="pt50 pb20" id="portfolio">
+            <div class="container">
+                <h3 class="text-center font700 text-uppercase h3 mb60">Mes achats</h3>
+
+                <div class="row">
+
+                    <div class="col-md-4 mb30">
+                        <a href="" class="folio-card">
+                            <img src=<%= asset_path "chat1.jpg" %> alt="" class="img-fluid">
+                            <div class="folio-overlay">
+                                <div class="folio-content">
+                                    <h4>Project Title</h4>
+                                    <p>Lorem ipsum dolor</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div><!--/col-->
+                </div>
+            </div>
+        </div>

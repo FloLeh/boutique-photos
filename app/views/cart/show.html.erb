@@ -11,7 +11,7 @@
         </div>
         <div class="container pb60">
             <h4 class="font300 mb30">
-              <%= link_to "Vider le panier", cart_path, class: "btn btn-dark float-right" %>
+              <%= link_to "Vider le panier", root_url, method: :post, action: "empty", class: "btn btn-dark float-right" %>
                 Vous avez <%= @cart.items.count %> objets dans votre panier
             </h4>
             <table class="table table-condensed table-responsive cart-table mb40">
@@ -37,9 +37,13 @@
                             <input type="number" value="1" min="1" class="fl qty-text" name="quantity">
                         </td>
                         <td class="product-total">
-                            <%= i.price %> €
+                            <%= i.price %> € 
                         </td>
-                        <td class="product-delete"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Remove this item"><i class="fa fa-times"></i></a></td>
+                        <td class="product-delete">
+                          <%= link_to remove_item_path(item_id: i.id), method: :post, action: "remove_item", data: { toggle: 'tooltip', placement: 'top', original_title: 'Retirer du panier' } do %>
+                            <i class="fa fa-times"></i>
+                          <% end %>
+                        </td>
                     </tr>
                     <% end %>
                 </tbody>
@@ -53,7 +57,8 @@
                  <div class="pb20">
                      <h3><small>Prix total du Panier - </small> <%= @cart.items.map{|i| i.price}.sum %> €</h3>
                  </div>
-                <a href="#" class="btn btn-primary">Commander</a>
+                <%= link_to "Passer la commande", new_order_path, class: "btn btn-primary" %>
             </div>
         </div>
 </div>
+

@@ -8,6 +8,13 @@ class CartController < ApplicationController
   end
 
   def empty
+    @cart = Cart.find_by(user_id: current_user.id)
     @cart.items.destroy_all
+    redirect_to cart_path
+  end
+
+  def remove_item
+    Item.destroy(params[:item_id])
+    redirect_to cart_path
   end
 end
