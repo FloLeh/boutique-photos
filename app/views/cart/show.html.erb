@@ -53,7 +53,7 @@
                  <div class="pb20">
                      <h3><small>Prix total du Panier - </small> <%= @cart.items.map{|i| i.price}.sum %> €</h3>
                  </div>
-                <%= link_to "Passer la commande", new_order_path(@cart.items), class: "btn btn-primary" %>
+                <%= link_to "Passer la commande", new_order_path, class: "btn btn-primary" %>
             </div>
         </div>
 </div>

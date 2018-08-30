@@ -15,4 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-var stripe = Stripe('pk_test_5GQxuFThkOL9Lw7rxINXf8Gz');

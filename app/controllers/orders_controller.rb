@@ -13,13 +13,13 @@ class OrdersController < ApplicationController
 
         charge= Stripe::Charge.create(
             customer: customer.id,
-            amount: @order.price,
+            amount: 999,
             description: "Payement photo de ",
             currency: 'eur'
         )
 
-        @order.update(payement: charge.to_json,state: 'paid')
-        redirect_to order_path(@order)
+        
+        redirect_to root_path
         
         rescue Stripe::CardError => e
             flash[:alert]=e.message
@@ -27,6 +27,6 @@ class OrdersController < ApplicationController
 
     def show
         @command= current_user.orders.where(state: 'paid')
-        redirect_to new_orders_path
+        redirect_to new_order_path
     end
 end
