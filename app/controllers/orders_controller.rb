@@ -22,7 +22,29 @@ class OrdersController < ApplicationController
 
         @cart = Cart.find_by(user_id: current_user.id)
         @cart.items.destroy_all
+
+
+        mail = { messages: [{
+          'From'=> {
+              'Email'=> ENV['PRIVATE_EMAIL_ADRESS'],
+              'Name'=> 'THP-nantes'
+          },
+          'To'=> [
+              {
+                  'Email'=> current_user.email,
+                  'Name'=> current_user.first_name
+              }
+          ],
+          'Subject'=> 'Votre achat sur Atomic Kitten ',
+          'HTMLPart'=> "<h1>Salut #{current_user.first_name.capitalize},</h1> <h2>Voici les images que tu as commandé</h2> <img src='https://thp-nantes-boutique.herokuapp.com/assets/chat1-ec7132dc5b4f0d47196ee2fa5e333c5e645a2ecab110d1ca0175fc3abdbe04a7.jpg' alt=''>"
+        }]}
+        test = Mailjet::Send.create(mail)
+
+
+
         redirect_to root_path
+
+
 
         rescue Stripe::CardError => e
             flash[:alert]=e.message
