@@ -4,13 +4,13 @@
     <% if current_user %>
 
       <div class="dropdown">
-        <button class="btn btn-dark mask rgba-white-strong" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button class="btn btn-dark pr-0" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <%= current_user.first_name %> <%= current_user.last_name %>  <i class="fas fa-angle-down pl-3"></i>
         <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <li class="pb-3"><%= link_to 'Profil', user_show_path(current_user.id) %></li>
+          <li><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
 
@@ -23,7 +23,7 @@
         <% end %>
       <% end %>
     <% else %>
-      <%= link_to 'Login', new_user_session_path , class: "btn btn-primary"%>
+      <%= link_to 'Se connecter', new_user_session_path , class: "btn btn-primary"%>
     <% end %>
 
 

@@ -30,8 +30,12 @@ header {
   align-items: center;
 }
 
-.perso a,h4 {
+.perso a {
   margin: 5px;
+  padding: 5px 20px !important;
+}
+
+.perso a:last-child {
   padding: 10px 20px !important;
 }
 

@@ -12,4 +12,9 @@ class CartController < ApplicationController
     @cart.items.destroy_all
     redirect_to cart_path
   end
+
+  def remove_item
+    Item.destroy(params[:item_id])
+    redirect_to cart_path
+  end
 end
